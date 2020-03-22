@@ -1,0 +1,54 @@
+import random as r
+import string
+string.ascii_letters
+class Person():
+    def __init__(self, name, phone, email):
+        self.name = name
+        self.phone = phone
+        self.email = email
+
+######GETTERS#####
+    def getName(self):
+        return self.name
+
+    def getPhone(self):
+        return self.phone
+
+    def getEmail(self):
+        return self.email
+  ####SETTERS#####
+    def setName(self, n):
+        self.name = n
+
+    def setPhone(self, p):
+        self.phone = p
+
+    def setEmail(self, e):
+        self.email= e
+
+
+class Customer(Person):
+    def __init__(self, name, phone, email, rewards):
+        Person.__init__(self,name, phone, email)
+        self.customer_rewards = rewards
+
+    def getrewards(self):
+        return self.customer_rewards
+
+    def setrewards(self,r):
+        self.customer_rewards = r
+
+
+class Employee(Customer):
+    def __init__(self, name, phone, email, rewards, customer_id):
+        Customer.__init__(self, name, phone, email, rewards)
+        self.customer_id = customer_id
+
+    def getid (self):
+        return self.customer_id
+
+    def setid(self, i):
+        self.customer_id = i
+
+for i in range(1,100):
+    Customer(r.choice(string.ascii_letters),i, i, i)
